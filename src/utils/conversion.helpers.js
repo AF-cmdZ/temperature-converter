@@ -3,7 +3,7 @@ const converters = {
       return ((tempF - 32) * 5) / 9;
     },
     toFahrenheit(tempC) {
-      return ((tempC - 32) * 5) / 9;
+      return ((tempC * 9 / 5) + 32);
     },
   };
   
@@ -13,7 +13,9 @@ const converters = {
     if (Number.isNaN(input)) {
       return "";
     }
-  
+// Bracket notation to dynamically access a key based
+// on the value of conversion
+    
     const output = converters[conversion](input);
     const rounded = Math.round(output * 1000) / 1000;
   
